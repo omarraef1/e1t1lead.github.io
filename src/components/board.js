@@ -34,7 +34,7 @@ export default function Board() {
 
 
 function between(data, between){
-    if(between == 0){
+    if(between != 7){
     const today = new Date();
     const previous = new Date(today);
     previous.setDate(previous.getDate() - (between + 1));
@@ -42,7 +42,7 @@ function between(data, between){
     
     let filter = data.filter(val => {
         let userDate = new Date(val.dt);
-        if (between == 0) return val;
+        if (between != 7) return val;
         return previous <= userDate && today >= userDate;
     })
 
@@ -55,7 +55,7 @@ function between(data, between){
         }
     })
     }
-    else if (between == 7){
+    else if (between != 0){
 
     const today = new Date();
     const previous = new Date(today);
@@ -64,7 +64,7 @@ function between(data, between){
     
     let filter = data.filter(val => {
         let userDate = new Date(val.dt);
-        if (between == 7) return val;
+        if (between != 0) return val;
         return previous <= userDate && today >= userDate;
     })
 
